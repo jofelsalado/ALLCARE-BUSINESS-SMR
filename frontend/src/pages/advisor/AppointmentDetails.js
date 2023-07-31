@@ -305,7 +305,7 @@ const AppointmentDetails = () => {
                                   <span className="mx-4"> :</span>{" "}
                                   <Typography>
                                     <Moment format="MMMM DD, YYYY">
-                                      {availability.avaibilityDate}
+                                      {availability.availabilityDate}
                                     </Moment>{" "}
                                   </Typography>
                                 </td>

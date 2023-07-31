@@ -40,6 +40,7 @@ const addAvailability = asyncHandler(async (req, res) => {
   if (checkAvailability) {
     res.status(400);
     throw new Error("Availability data and time is already exist");
+
   } else {
     const availability = await Availability.create({
       userId,
@@ -56,6 +57,15 @@ const addAvailability = asyncHandler(async (req, res) => {
       res.status(401).send({ message: "Something went wrong!" });
     }
   }
+  // if (checkAvailability)
+  // {
+  //   const availability = await Availability.remove({
+  //     userId,
+  //     availabilityDate,
+  //     availabilityTime,
+  //     availabilityType,
+  //   });
+  // }
 });
 
 const getAvailabilityByAdvisor = asyncHandler(async (req, res) => {
@@ -67,7 +77,7 @@ const getAvailabilityByAdvisor = asyncHandler(async (req, res) => {
 });
 
 const setAppointment = asyncHandler(async (req, res) => {
-  const { productId, advisorId, leadsId, availabilityId } = req.body;
+  const { productId, advisorId, leadsId, availabilityId,  } = req.body;
 
   const checkAppointment = await Appointment.findOne({
     advisorId: advisorId,
@@ -76,9 +86,13 @@ const setAppointment = asyncHandler(async (req, res) => {
     availabilityId: availabilityId,
   }); // e check niya if ang company is na exist or wala
 
+  const checkAvailability = await  Availability.findOne({
+    
+  })
+
   if (checkAppointment) {
     res.status(400);
-    throw new Error("Availability is not available or already taken");
+    throw new Error("Availabilitasdy is not available or already taken");
   } else {
     const appointment = await Appointment.create({
       advisorId,
@@ -88,6 +102,7 @@ const setAppointment = asyncHandler(async (req, res) => {
     });
 
     if (appointment) {
+      console.log(availabilityId);
       res
         .status(200)
         .send({ message: "Appointment has been successfully booked!" });
@@ -97,6 +112,23 @@ const setAppointment = asyncHandler(async (req, res) => {
         appointmentId: appointment._id,
         notificationMessage: `You have new appointment request.`,
       });
+      const availabilityDetails = await Availability.findById({
+        _id: availabilityId,
+      });
+      availabilityDetails.isAvailable = false;
+      await availabilityDetails.save();
+      console.log(availabilityDetails.isAvailable);
+      // if(availabilityDetails == true) {
+      //   availabilityDetails.isAvailable = false;
+      // }
+
+
+      // const checkifAvailable = await Availability.findById({ userId: availabilityId });
+      // await Availability.create({
+      //   userId: availabilityId,
+      //   isAvailable: false,
+      // })
+
     } else {
       res.status(401).send({ message: "Something went wrong!" });
     }
@@ -116,6 +148,7 @@ const advisorAppointment = asyncHandler(async (req, res) => {
 
   const checkAppointment = await Appointment.find({ advisorId: userId });
 
+  
   res.send(checkAppointment);
 });
 

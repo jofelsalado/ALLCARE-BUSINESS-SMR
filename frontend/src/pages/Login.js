@@ -87,6 +87,9 @@ const Login = () => {
       }
     }
   };
+
+  console.log("email:", email);
+  console.log("password:", password);
   return (
     <>
       <Navbar />

@@ -53,6 +53,7 @@ const addProduct = asyncHandler(async (req, res) => {
   }
 });
 
+
 // @desc get product by advisor
 // @route POST /api/product
 const getProductByAdvisor = asyncHandler(async (req, res) => {

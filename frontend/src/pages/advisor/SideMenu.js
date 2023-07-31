@@ -108,6 +108,7 @@ const SideMenu = () => {
   const [availabilityDate, setAvailabilityDate] = useState("");
   const [availabilityTime, setAvailabilityTime] = useState("");
   const [availabilityType, setAvailabilityType] = useState("");
+  const [isAvailable, setIsAvailable] = useState(true);
   // const [userId] = useState(userInfo._id);
 
   const handleAvailability = (type) => {
@@ -123,6 +124,7 @@ const SideMenu = () => {
         availabilityDate: availabilityDate,
         availabilityTime: availabilityTime,
         availabilityType: availabilityType,
+        isAvailable: true,
       })
       .then((result) => {
         toast.success(result?.data?.message || result.message, {
@@ -135,6 +137,7 @@ const SideMenu = () => {
           progress: undefined,
           theme: "colored",
         });
+        window.location.reload();
       })
       .catch((error) => {
         toast.error(

@@ -505,6 +505,12 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.educationalLevel = req.body.educationalLevel || user.educationalLevel;
     user.occupation = req.body.occupation || user.occupation;
     user.workAddress = req.body.workAddress || user.workAddress;
+    user.smokingStatus = req.body.smokingStatus || user.smokingStatus;
+    user.salaryRange = req.body.salaryRange || user.salaryRange;
+    user.religion = req.body.religion || user.religion;
+    user.dependent1 = req.body.dependent1 || user.dependent1;
+    user.dependent2 = req.body.religion || user.religion;
+    user.dependent3 = req.body.dependent3 || user.dependent3;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -535,6 +541,12 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       educationalLevel: updatedUser.educationalLevel,
       occupation: updatedUser.occupation,
       workAddress: updatedUser.workAddress,
+      smokingStatus: updatedUser.smokingStatus,
+      salaryRange: updatedUser.salaryRange,
+      religion: updatedUser.religion,
+      dependent1: updatedUser.dependent1,
+      dependent2: updatedUser.religion,
+      dependent3: updatedUser.dependent3,
     });
   } else {
     res.status(404);

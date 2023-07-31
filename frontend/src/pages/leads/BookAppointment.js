@@ -62,8 +62,10 @@ const BookAppointment = () => {
             progress: undefined,
             theme: "colored",
           });
+          // Refresh the page
+          window.location.reload();
         })
-        .catch((error) =>
+        .catch((error) => {
           toast.error(error.response.data.message, {
             position: "top-right",
             autoClose: 3000,
@@ -73,10 +75,62 @@ const BookAppointment = () => {
             draggable: true,
             progress: undefined,
             theme: "colored",
-          })
-        );
+          });
+        });
     }
   };
+  
+
+
+  // const handleBookAppointment = () => {
+  //   if (!availabilityId) {
+  //     toast.error("Availability is required!", {
+  //       position: "top-right",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "colored",
+  //     });
+  //   } else {
+  //     axios
+  //       .post("http://localhost:8080/api/appointment/set-appointment", {
+  //         productId: productId,
+  //         advisorId: advisorId,
+  //         leadsId: leadsId,
+  //         availabilityId: availabilityId,
+
+      
+  //       })
+  //       .then((result) => {
+  //         // console.log(isAvailable)
+  //         toast.success(result.data.message, {
+  //           position: "top-right",
+  //           autoClose: 3000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: "colored",
+  //         });
+  //       })
+  //       .catch((error) =>
+  //         toast.error(error.response.data.message, {
+  //           position: "top-right",
+  //           autoClose: 3000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: "colored",
+  //         })
+  //       );
+  //   }
+  // };
 
   useEffect(() => {
     axios
@@ -98,7 +152,7 @@ const BookAppointment = () => {
 
     return `${hours}:${minutes} ${period}`;
   };
-
+  console.log(details.availabilityDetails);
   return (
     <>
       <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
@@ -465,10 +519,13 @@ const BookAppointment = () => {
                                   setAvailabilityId(e.target.value)
                                 }
                               >
+                                {/* BRK */}
                                 <option selected>Select Availability</option>
                                 {details?.availabilityDetails
                                   ?.filter((item) => item.isAvailable === true)
+                                  
                                   .map((data, key) => (
+                                    // console.log(item.isAvailable),
                                     <option value={data._id}>
                                       <Moment format="MMMM DD, YYYY">
                                         {data.availabilityDate}
@@ -478,7 +535,9 @@ const BookAppointment = () => {
                                       )}
                                       {" - "}
                                       {data.availabilityType}
+                                      
                                     </option>
+                                    
                                   ))}
                               </select>
                             </Typography>

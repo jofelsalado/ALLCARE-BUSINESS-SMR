@@ -33,7 +33,7 @@ import { TbTrashFilled } from "react-icons/tb";
 
 const TABLE_HEAD = [
   "Appointmend #",
-  "Submiited Date",
+  "Submitted Date",
   "Status",
   "Notes",
   "Action",

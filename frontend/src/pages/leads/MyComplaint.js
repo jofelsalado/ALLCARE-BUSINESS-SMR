@@ -26,7 +26,7 @@ const TABLE_HEAD = [
   "Action",
 ];
 
-const MyComplaint = () => {
+const MyComplaint = () => {  
   const { userInfo } = useSelector((state) => state.auth);
   const [userId] = useState(userInfo._id);
   const [myComplaint, setMyComplaint] = useState([]);
@@ -182,7 +182,7 @@ const MyComplaint = () => {
                               {data.complaintName}
                             </Typography>
                           </td>
-                          <td className="p-4">
+                          <td className="p-4 w-64">
                             <Typography
                               variant="small"
                               color="blue-gray"
