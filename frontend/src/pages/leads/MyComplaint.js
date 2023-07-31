@@ -182,7 +182,7 @@ const MyComplaint = () => {
                               {data.complaintName}
                             </Typography>
                           </td>
-                          <td className="p-4">
+                          <td className="p-4 w-64">
                             <Typography
                               variant="small"
                               color="blue-gray"

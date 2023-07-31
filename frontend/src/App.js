@@ -49,6 +49,8 @@ import MyMedicalHistory from "./pages/leads/MyMedicalHistory";
 import AdvisorSubmitComplaint from "./pages/advisor/AdvisorSubmitComplaint";
 import AdvisorComplaint from "./pages/advisor/AdvisorComplaint";
 import AllAppointments from "./pages/admin/AllAppointments";
+import Notification from "./pages/admin/Notification";
+import UpdateProfile from "./pages/leads/UpdateProfile";
 function App() {
   return (
     <Router>
@@ -69,6 +71,7 @@ function App() {
           <Route path="/admin/complaints" element={<Complaints />} />
           <Route path="/admin/user-details" element={<UserDetails />} />
           <Route path="/admin/appointment" element={<AllAppointments />} />
+          <Route path="/admin/notification" element={<Notification />} />
         </Route>
 
         {/* Advisor Routes */}
@@ -155,6 +158,7 @@ function App() {
             element={<RatingAndReview />}
           />
           <Route path="/leads/medical-history" element={<MyMedicalHistory />} />
+          <Route path="/leads/update-profile" element={<UpdateProfile />} />
         </Route>
       </Routes>
     </Router>

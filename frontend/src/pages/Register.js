@@ -582,7 +582,7 @@ const Register = () => {
                             </Option>
                             <Option
                               onClick={(e) =>
-                                setSmokingStatus("Jehovah's Witnesses")
+                                setReligion("Jehovah's Witnesses")
                               }
                             >
                               Jehovah's Witnesses

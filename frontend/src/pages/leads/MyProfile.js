@@ -57,7 +57,7 @@ const MyProfile = () => {
     setInstagram(userInfo.instagram);
     setLinkedIn(userInfo.linkedIn);
     setEducationalLevel(userInfo.educationalLevel);
-    setCivilStatus(userInfo.educationalLevel);
+    setCivilStatus(userInfo.civilStatus);
     setWorkAddress(userInfo.workAddress);
     setOccupation(userInfo.occupation);
     setEducation(userInfo.education);

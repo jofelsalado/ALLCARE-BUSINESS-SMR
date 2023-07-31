@@ -222,7 +222,7 @@ const MyProducts = () => {
                               {data.productName}
                             </Typography>
                           </td>
-                          <td className="p-4">
+                          <td className="p-4 w-52">
                             <Typography
                               variant="small"
                               color="blue-gray"
