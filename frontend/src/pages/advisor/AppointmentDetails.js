@@ -356,8 +356,8 @@ const AppointmentDetails = () => {
                                         appointmentStatus[0] === "Pending"
                                           ? "red"
                                           : appointmentStatus[0] === "Reject"
-                                          ? "red"
-                                          : "green"
+                                            ? "red"
+                                            : "green"
                                       }
                                     />
                                   </Typography>

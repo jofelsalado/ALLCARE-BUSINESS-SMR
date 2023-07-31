@@ -434,7 +434,7 @@ const AppointmentDetails = () => {
                                   <span className="mx-4"> :</span>{" "}
                                   <Typography>
                                     <Moment format="MMMM DD, YYYY">
-                                      {availability.avaibilityDate}
+                                      {availability.availabilityDate}
                                     </Moment>{" "}
                                   </Typography>
                                 </td>
@@ -485,8 +485,8 @@ const AppointmentDetails = () => {
                                         appointmentStatus[0] === "Pending"
                                           ? "red"
                                           : appointmentStatus[0] === "Reject"
-                                          ? "red"
-                                          : "green"
+                                            ? "red"
+                                            : "green"
                                       }
                                     />
                                   </Typography>
